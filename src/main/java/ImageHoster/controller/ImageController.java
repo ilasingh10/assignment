@@ -102,14 +102,14 @@ public class ImageController {
         boolean canEdit = false;
         User user = (User) session.getAttribute("loggeduser");
         List<Image> images = user.getImages();
-        for(Image img: images) {
-            if(img.getId().equals(imageId)) {
+        for (Image img : images) {
+            if (img.getId().equals(imageId)) {
                 canEdit = true;
             }
         }
         Image image = imageService.getImage(imageId);
         model.addAttribute("image", image);
-        if(canEdit) {
+        if (canEdit) {
             String tags = convertTagsToString(image.getTags());
             model.addAttribute("tags", tags);
             return "images/edit";
@@ -151,7 +151,7 @@ public class ImageController {
         updatedImage.setDate(new Date());
 
         imageService.updateImage(updatedImage);
-        return "redirect:/images/" + updatedImage.getId() + "/" +updatedImage.getTitle();
+        return "redirect:/images/" + updatedImage.getId() + "/" + updatedImage.getTitle();
     }
 
 
@@ -164,13 +164,13 @@ public class ImageController {
         boolean canDelete = false;
         User user = (User) session.getAttribute("loggeduser");
         List<Image> images = user.getImages();
-        for(Image img: images) {
-            if(img.getId().equals(imageId)) {
+        for (Image img : images) {
+            if (img.getId().equals(imageId)) {
                 canDelete = true;
             }
         }
 
-        if(canDelete) {
+        if (canDelete) {
             imageService.deleteImage(imageId);
             return "redirect:/images";
         } else {

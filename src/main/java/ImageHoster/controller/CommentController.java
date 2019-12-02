@@ -26,7 +26,7 @@ public class CommentController {
     @Autowired
     private ImageService imageService;
 
-    @RequestMapping(value="/image/{imageId}/{imageTitle}/comments", method = RequestMethod.POST)
+    @RequestMapping(value = "/image/{imageId}/{imageTitle}/comments", method = RequestMethod.POST)
     public String addComments(@PathVariable("imageId") int imageId, @PathVariable("imageTitle") String title,
                               @RequestParam("comment") String comment, Model model, HttpSession session) {
 
@@ -44,6 +44,6 @@ public class CommentController {
         List<Comment> commentList = image.getComments();
         model.addAttribute("image", image);
         model.addAttribute("comments", commentList);
-        return "redirect:/images/"+imageId+"/"+title;
+        return "redirect:/images/" + imageId + "/" + title;
     }
 }

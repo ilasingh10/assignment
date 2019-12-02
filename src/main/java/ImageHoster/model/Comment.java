@@ -2,7 +2,6 @@ package ImageHoster.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table(name = "comments")
@@ -57,7 +56,7 @@ public class Comment {
     private String text;
 
     @Column(name = "date")
-    private LocalDate createdDate ;
+    private LocalDate createdDate;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

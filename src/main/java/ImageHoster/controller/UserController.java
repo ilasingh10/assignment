@@ -44,7 +44,7 @@ public class UserController {
 
         String regex = "^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[@#$%^&+=])(?=\\S+$).*$";
         String password = user.getPassword();
-        if(password.matches(regex)) {
+        if (password.matches(regex)) {
             userService.registerUser(user);
             return "users/login";
         } else {
